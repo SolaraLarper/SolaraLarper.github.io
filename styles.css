@@ -1,0 +1,258 @@
+:root {
+  --bg: #0d0d0e;
+  --panel: #111113;
+  --line: #262629;
+  --text: #f1f1f2;
+  --muted: #8f8f95;
+  --soft: #b8b8be;
+  --white: #fafafa;
+  --accent: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+.topbar {
+  height: 80px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 42px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(13,13,14,.82);
+  backdrop-filter: blur(18px);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #444449;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  background: #151517;
+}
+.discord {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #aaaab0;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color .2s ease;
+}
+.discord:hover { color: #fff; }
+.discord svg { width: 21px; height: 21px; fill: currentColor; }
+
+.hero {
+  min-height: 710px;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 142px 28px 100px;
+  text-align: center;
+  position: relative;
+}
+.glow {
+  position: fixed;
+  pointer-events: none;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.035);
+  filter: blur(100px);
+}
+.glow-one { top: 40px; left: -260px; }
+.glow-two { top: 260px; right: -280px; }
+
+.eyebrow, .label {
+  color: #77777d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+.eyebrow {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.eyebrow span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #eee;
+  box-shadow: 0 0 14px rgba(255,255,255,.8);
+}
+h1 {
+  font-size: clamp(54px, 8vw, 94px);
+  line-height: .96;
+  letter-spacing: -.065em;
+  margin: 0;
+  font-weight: 800;
+}
+h1 em {
+  font-style: normal;
+  color: #9b9ba1;
+}
+.subtitle {
+  max-width: 650px;
+  margin: 31px auto 0;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 16px;
+}
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.button {
+  min-height: 52px;
+  padding: 0 23px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid var(--line);
+  transition: transform .2s, background .2s, border-color .2s;
+}
+.button:hover { transform: translateY(-2px); }
+.button-primary { background: var(--white); color: #0c0c0d; border-color: var(--white); }
+.button-primary:hover { background: #dddde0; }
+.button-secondary { background: transparent; color: #dddde0; }
+.button-secondary:hover { background: #151517; border-color: #3a3a3e; }
+
+.status-card {
+  max-width: 690px;
+  margin: 75px auto 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  background: rgba(17,17,19,.7);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 12px;
+}
+.status-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #d9d9dd;
+  box-shadow: 0 0 13px rgba(255,255,255,.65);
+}
+.status-card strong { display: block; font-size: 12px; margin-bottom: 4px; }
+.status-card span { color: #73737a; font-size: 11px; }
+.live { margin-left: auto; color: #bdbdc2 !important; font-weight: 700; letter-spacing: .1em; }
+
+.section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 120px 28px;
+  border-top: 1px solid var(--line);
+}
+.section-heading { max-width: 690px; margin-bottom: 55px; }
+.section h2, .cta h2 {
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.03;
+  letter-spacing: -.05em;
+  margin: 14px 0 18px;
+}
+.section-heading p, .copy p {
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 600px;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.feature-card {
+  min-height: 250px;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, #111113, #0e0e10);
+  padding: 25px;
+  border-radius: 12px;
+  transition: transform .25s, border-color .25s;
+}
+.feature-card:hover { transform: translateY(-5px); border-color: #3a3a3e; }
+.icon {
+  width: 38px; height: 38px;
+  border: 1px solid #303034;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: #dedee1;
+  margin-bottom: 42px;
+}
+.feature-card h3 { font-size: 16px; margin: 0 0 10px; }
+.feature-card p { color: #77777d; line-height: 1.7; font-size: 13px; margin: 0; }
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+.copy { padding-bottom: 8px; }
+.text-link { display: inline-flex; gap: 8px; margin-top: 15px; font-size: 13px; font-weight: 700; }
+.cta {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 135px 28px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.cta .label { display: block; }
+.cta h2 { margin: 15px auto 35px; }
+footer {
+  max-width: 1120px;
+  margin: auto;
+  border-top: 1px solid var(--line);
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  color: #55555b;
+  font-size: 11px;
+}
+
+@media (max-width: 800px) {
+  .topbar { padding: 0 20px; }
+  .hero { padding-top: 105px; min-height: 650px; }
+  .feature-grid { grid-template-columns: 1fr 1fr; }
+  .split { grid-template-columns: 1fr; gap: 15px; }
+}
+@media (max-width: 520px) {
+  .brand { font-size: 15px; }
+  .discord { font-size: 0; }
+  .discord svg { width: 22px; height: 22px; }
+  .hero { padding-left: 20px; padding-right: 20px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature-card { min-height: 210px; }
+  .status-card { margin-top: 55px; }
+  .status-card > div:nth-child(2) span { display: none; }
+  footer { flex-direction: column; gap: 8px; }
+}
